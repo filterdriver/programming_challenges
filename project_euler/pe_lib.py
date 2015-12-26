@@ -48,6 +48,27 @@ class ProjectEuler():
         sum = n*(n+1)/2
         return sum*sum
 
+    def get_lcm_n(self, n):
+        i = 1
+        lcm_factors = list()
+        while (i <= n):
+            if (self.is_prime(i)):
+                lcm_factors.append(i)
+            else:
+                res = i
+                for lcm_elem in lcm_factors:
+                    if (res%lcm_elem == 0):
+                        res /= lcm_elem
+                        if (res == 1):
+                            break
+                if res != 1:
+                    lcm_factors.append(res)
+            i += 1
+        lcm = 1
+        for lcm_elem in lcm_factors:
+            lcm *= lcm_elem
+        return lcm
+
     def largest_palindromic_product_2(self, n):
         if n == 1:
             k, l = 9, 1

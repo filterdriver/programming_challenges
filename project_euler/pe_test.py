@@ -48,7 +48,14 @@ class ProjectEulerTest(unittest.TestCase):
             raise
 
     def test_problem_5(self):
-        log.info("Problem5: Not implemented yet")
+        input = 20
+        log.info("Problem5: Find the lowest common multiple of the first " + str(input) + " numbers")
+        try:
+            output = self.mm.get_lcm_n(input)
+            log.info("Problem5: The lowest common multiple of the first " + str(input) + " numbers is : " + str(output))
+        except Exception as e:
+            log.exception("Problem5: Error find the lowest common multiple with msg: " + e.message)
+            raise
 
     def test_problem_6(self):
         input = 100
