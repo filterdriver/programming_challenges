@@ -29,6 +29,32 @@ class ProjectEuler():
             m += 1
         return True
 
+    def get_greatest_product_sequence(self, large_num, n):
+        log.debug("Large number = " + large_num)
+        log.debug("Num digits  = " + str(n))
+
+        i = 0
+        greatest_product = 0
+        greatest_prod_str = 0
+
+        str_len = len(large_num)
+        while (i <= str_len - n):
+            prod_str = large_num[i:i+n]
+            log.debug("Current sequence is: " + prod_str)
+            product = 1
+            j = 0
+            while j < n:
+                product *= int(prod_str[j])
+                j += 1
+            log.debug("Current product is: " + str(product))
+            if (product > greatest_product):
+                greatest_product = product
+                greatest_prod_str = prod_str
+                log.debug("Greatest product " + str(greatest_product) + " sequence is " + greatest_prod_str)
+            i += 1
+
+        return greatest_prod_str
+
     def get_nth_prime(self, n):
         i = 1
         j = 0
