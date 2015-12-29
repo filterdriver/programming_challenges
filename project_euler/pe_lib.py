@@ -29,6 +29,20 @@ class ProjectEuler():
             m += 1
         return True
 
+    def get_pythagorean_triplet_product_from_sum(self, sum_of_abc):
+        a = 1
+        b = 1
+        while (a < sum_of_abc/3):
+            while (b < sum_of_abc/2):
+                c = sum_of_abc - a - b
+                if ((a*a + b*b) == c*c):
+                    log.debug("Found triplet as: %s,%s,%s", a, b, c)
+                    return a*b*c
+                b += 1
+            a += 1
+            b = 1
+        return None
+
     def get_greatest_product_sequence(self, large_num, n):
         log.debug("Large number = " + large_num)
         log.debug("Num digits  = " + str(n))
@@ -40,13 +54,11 @@ class ProjectEuler():
         str_len = len(large_num)
         while (i <= str_len - n):
             prod_str = large_num[i:i+n]
-            log.debug("Current sequence is: " + prod_str)
             product = 1
             j = 0
             while j < n:
                 product *= int(prod_str[j])
                 j += 1
-            log.debug("Current product is: " + str(product))
             if (product > greatest_product):
                 greatest_product = product
                 greatest_prod_str = prod_str

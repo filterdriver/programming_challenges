@@ -100,6 +100,12 @@ class ProjectEulerTest(unittest.TestCase):
         output = self.mm.get_greatest_product_sequence(large_num, num_digits)
         log.info("Problem8: Found " + str(num_digits) + " digit sequence with the greatest product as " + output)
 
+    def test_problem_9(self):
+        sum_of_abc = 1000
+        log.info("Problem9: Finding product of Pythagorean triplet whose sum is: " + str(sum_of_abc))
+        abc = self.mm.get_pythagorean_triplet_product_from_sum(sum_of_abc)
+        log.info("Problem9: Found product of Pythagorean triplet whose sum is: " + str(sum_of_abc) + " as : " + str(abc))
+
 
 if __name__ == "__main__":
     logging.basicConfig(level = logging.DEBUG)
