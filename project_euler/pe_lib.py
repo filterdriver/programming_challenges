@@ -29,6 +29,15 @@ class ProjectEuler():
             m += 1
         return True
 
+    def get_sum_of_primes(self, n):
+        i = 2
+        sum_of_primes = 0
+        while (i <= n):
+            if (self.is_prime(i)):
+                sum_of_primes += i
+            i += 1
+        return sum_of_primes
+
     def get_pythagorean_triplet_product_from_sum(self, sum_of_abc):
         a = 1
         b = 1

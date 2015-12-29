@@ -106,6 +106,12 @@ class ProjectEulerTest(unittest.TestCase):
         abc = self.mm.get_pythagorean_triplet_product_from_sum(sum_of_abc)
         log.info("Problem9: Found product of Pythagorean triplet whose sum is: " + str(sum_of_abc) + " as : " + str(abc))
 
+    def test_problem_10(self):
+        n = 2000000
+        log.info("Problem10: Finding the sum of primes below " + str(n))
+        sum_of_primes = self.mm.get_sum_of_primes(n)
+        log.info("Problem10: Found the sum of primes below " + str(n) + " as : " + str(sum_of_primes))
+
 
 if __name__ == "__main__":
     logging.basicConfig(level = logging.DEBUG)
